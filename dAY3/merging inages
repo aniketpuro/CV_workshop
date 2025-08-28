@@ -1,0 +1,18 @@
+import cv2
+
+# Load images
+img1 = cv2.imread("image.png")
+img2 = cv2.imread("sample_image.png")
+
+# Resize to same size
+h, w = min(img1.shape[0], img2.shape[0]), min(img1.shape[1], img2.shape[1])
+img1 = cv2.resize(img1, (w, h))
+img2 = cv2.resize(img2, (w, h))
+
+# Merge images
+merged = cv2.addWeighted(img1, 0.35, img2, 0.65, 0.3)
+
+# Show result
+cv2.imshow("Merged", merged)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
