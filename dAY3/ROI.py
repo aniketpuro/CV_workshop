@@ -1,13 +1,20 @@
-#resume of interest
-import cv2 as cv
+import cv2
 import numpy as np
-img = cv.imread("image.png")  # Go up one directory to find image.png
-roi = img[84:308,717:890]
-img[84:308,457:630] = roi  # Moved 100px left, adjusted width to match ROI (457+173=630)
 
+#read image
+img = cv2.imread("image.png")
+img = cv2.resize(img,(800,800))
 
-# img = cv.putText(img, "ROI", (300, 300), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+roi = img[50:250,320:450]
+img[50:250,190:320] = roi
+img[50:250,450:580] = roi
+img[330:530,560:690] = roi
 
-cv.imshow("ROI", roi)
-cv.waitKey(0)  # Wait until any key is pressed
-cv.destroyAllWindows()
+# Save the generated image
+cv2.imwrite("generated_roi_image.png", img)
+print("Image saved as 'generated_roi_image.png'")
+
+cv2.imshow("ironman",img)
+# cv2.imshow('ROI',roi)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
