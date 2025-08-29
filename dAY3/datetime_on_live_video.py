@@ -17,7 +17,8 @@ while True:
     # Get the current date and time
     now = datetime.datetime.now()
     # Format the date and time into a string like "YYYY-MM-DD HH:MM:SS"
-    timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
+    # timestamp_str = now.strftime("%Y-%m-%d %H:%M:%S")
+    timestamp_str = str(now)
 
     cv2.putText(frame, timestamp_str, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
 
